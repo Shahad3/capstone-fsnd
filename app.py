@@ -13,7 +13,7 @@ def create_app(test_config=None):
 
   @app.route('/actors')
   @requires_auth('get:actors')
-  def get_actors():
+  def get_actors(token):
     # Get all questions
     actors = Actor.query.all()
     if len(actors) == 0:
@@ -28,7 +28,7 @@ def create_app(test_config=None):
 
   @app.route('/movies')
   @requires_auth('get:movies')
-  def get_movies():
+  def get_movies(token):
     # Get all questions
     movies = Movie.query.all()
     if len(movies) == 0:
@@ -43,7 +43,7 @@ def create_app(test_config=None):
       
   @app.route('/actor', methods=['POST'])
   @requires_auth('add:actor')
-  def post_actor():
+  def post_actor(token):
     body = request.get_json()
     new_name = body.get('name', None)
     new_age = body.get('age', None)
@@ -64,7 +64,7 @@ def create_app(test_config=None):
 
   @app.route('/actors/<int:id>', methods=['PATCH'])
   @requires_auth('patch:actor')
-  def patch_drink(id):
+  def patch_drink(token, id):
     actor = Actor.query.filter_by(id=id).one_or_none()
     if (actor is None):
         abort(404)
@@ -89,7 +89,7 @@ def create_app(test_config=None):
 
   @app.route('/actors/<int:id>', methods=['DELETE'])
   @requires_auth('del:actor')
-  def del_actor(id):
+  def del_actor(token, id):
     actor = Actor.query.filter_by(id=id).one_or_none()
     if (actor is None):
         abort(404)

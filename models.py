@@ -4,8 +4,11 @@ from flask_sqlalchemy import SQLAlchemy
 import json
 
 database_filename = "database.db"
+test_database_filename = "testdatabase.db"
 project_dir = os.path.dirname(os.path.abspath(__file__))
 database_path = "sqlite:///{}".format(os.path.join(project_dir, database_filename))
+test_database_path = "sqlite:///{}".format(os.path.join(project_dir, test_database_filename))
+
 
 db = SQLAlchemy()
 
@@ -19,6 +22,12 @@ setup_db(app)
 '''
 def setup_db(app):
     app.config["SQLALCHEMY_DATABASE_URI"] = database_path
+    app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+    db.app = app
+    db.init_app(app)
+
+def setup_test_db(app):
+    app.config["SQLALCHEMY_DATABASE_URI"] = test_database_path
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
     db.app = app
     db.init_app(app)
