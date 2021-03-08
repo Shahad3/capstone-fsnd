@@ -48,7 +48,7 @@ https://sh-udacity-fullstack.herokuapp.com/
 
 ### Authenticaion:
 To get an authenticaion token, sign up to the following URL, after replacing the <domain>, <client_id> and <audience> from the the file `setup.sh`:
-https://<domain>/authorize?audience=<audience>&response_type=token&client_id=<client_id>&redirect_uri=http://localhost:5000/login-result
+```https://<domain>/authorize?audience=<audience>&response_type=token&client_id=<client_id>&redirect_uri=http://localhost:5000/login-result```
 
 ### Testing
 To run the test in the file `test_app.py`, run the command
@@ -98,9 +98,9 @@ The database contains two tables: Movies and Actors:
 
 ### Roles:
 #### Casting Assistant
-Can view actors and movies
+- Can view actors and movies
 #### Casting Director
-All permissions a Casting Assistant has and…
-Add or delete an actor from the database
-Modify actors or movies
+- All permissions a Casting Assistant
+- Can Add or delete an actor from the database
+- Can Modify actors or movies
 
