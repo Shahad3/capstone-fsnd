@@ -16,7 +16,7 @@ Deploying Applications
 ```
 
 ## Casting Agency 
-The Casting Agency models a company that is responsible for creating movies and managing and assigning actors to those movies. The motiviation for creating the system is to simplify the process of creating and mangaing movies/actors.
+The Casting Agency models a company that is responsible for creating movies and managing and assigning actors to those movies. The motivation for creating the system is to simplify the process of creating and mangaing movies/actors.
 
 ## Getting started
 ### Dependencies
